@@ -24,14 +24,15 @@ export default function MeetingsPage({username}) {
             headers: { 'Content-Type': 'application/json' }
         });
         if (response.ok) {
-            const nextMeetings = [...meetings, meeting];
+            const addedMeeting = await response.json()
+            const nextMeetings = [...meetings, addedMeeting];
             setMeetings(nextMeetings);
             setAddingNewMeeting(false);
         }
     }
 
     async function handleDeleteMeeting(meeting) {
-        const response = await fetch('/api/meetings/' + meeting.id, {
+        const response = await fetch(`/api/meetings/${meeting.id}`, {
             method: 'DELETE',
             body: JSON.stringify(meeting),
             headers: { 'Content-Type': 'application/json' }
@@ -42,14 +43,22 @@ export default function MeetingsPage({username}) {
         }
     }
 
-    function handleSignIn(meeting) {
-        const nextMeetings = meetings.map(m => {
-            if (m === meeting) {
-                m.participants = [...m.participants, username];
-            }
-            return m;
+
+    async function handleSignIn(meeting) {
+        const response = await fetch(`/api/meetings/${meeting.id}/participants`, {
+            method: 'POST',
+            body: JSON.stringify(meeting),
+            headers: { 'Content-Type': 'application/json' }
         });
-        setMeetings(nextMeetings);
+        if (response.ok) {
+            const nextMeetings = meetings.map(m => {
+                if (m === meeting) {
+                    m.participants = [...m.participants, username];
+                }
+                return m;
+            });
+            setMeetings(nextMeetings);
+        }
     }
 
     function handleSignOut(meeting) {
