@@ -47,7 +47,7 @@ export default function MeetingsPage({username}) {
     async function handleSignIn(meeting) {
         const response = await fetch(`/api/meetings/${meeting.id}/participants`, {
             method: 'POST',
-            body: JSON.stringify(username),
+            body: JSON.stringify(login: username),
             headers: { 'Content-Type': 'application/json' }
         });
         if (response.ok) {
