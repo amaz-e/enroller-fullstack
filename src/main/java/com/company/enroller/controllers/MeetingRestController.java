@@ -93,7 +93,7 @@ public class MeetingRestController {
         if (currentMeeting == null) {
             return new ResponseEntity(HttpStatus.NOT_FOUND);
         }
-        String login = json.get("username");
+        String login = json.get("login");
 
         if (login == null) {
             return new ResponseEntity<String>("Unable to find participant login in the request body",
