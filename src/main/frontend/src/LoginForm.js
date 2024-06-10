@@ -9,8 +9,8 @@ export default function LoginForm({onLogin, buttonLabel}) {
         <button type="button" onClick={() => onLogin(email)}>{buttonLabel || 'Wchodzę'}</button>
 
          <label>Zaloguj się loginem i hasłem</label>
-         <input type="text" value={login} onChange={(e) => setLogin(e.target.value)}/>
-         <input type="text" value={password} onChange={(e) => setPassword(e.target.value)}/>
-         <button type="button" onClick={() => onLogin(login)}>{buttonLabel || 'Wchodzę'}</button>
+         <input type="text" />
+         <input type="text" />
+         <button type="button" ></button>
     </div>;
 }
