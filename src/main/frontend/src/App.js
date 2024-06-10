@@ -10,6 +10,7 @@ function App() {
     function login(email) {
         if (email) {
             setLoggedIn(email);
+
         }
     }
 
