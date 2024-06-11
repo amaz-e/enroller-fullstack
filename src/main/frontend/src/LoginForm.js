@@ -30,6 +30,6 @@ export default function LoginForm({onLogin, buttonLabel}) {
          <label>Zaloguj się loginem i hasłem</label>
          <input type="text" value={login} onChange={(e) => setLogin(e.target.value)} />
          <input type="text" value={password} onChange={(e) => setPassword(e.target.value)}/>
-         <button type="button" onClick={() => onRegister(login,password)}>{buttonLabel || 'Zarejestruj'}</button>
+         <button type="button" onClick={() => register(login,password)}>{buttonLabel || 'Zarejestruj'}</button>
     </div>;
 }

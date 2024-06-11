@@ -13,6 +13,8 @@ function App() {
         }
     }
 
+
+
     function register(login, password) {
          if (login) {
             setLoggedIn(login);
