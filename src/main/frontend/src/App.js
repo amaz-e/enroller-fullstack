@@ -10,8 +10,14 @@ function App() {
     function login(email) {
         if (email) {
             setLoggedIn(email);
-
         }
+    }
+
+    function register(login, password) {
+         if (login) {
+            setLoggedIn(login);
+
+         }
     }
 
     function logout() {

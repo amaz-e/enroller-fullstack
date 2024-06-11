@@ -3,6 +3,7 @@ import {useState} from "react";
 export default function LoginForm({onLogin, buttonLabel}) {
     const [email, setEmail] = useState('');
     const [login, setLogin] = useState('');
+    const [password, setPassword] = useState('');
 
 //        async function handleRegister(participant) {
 //            const response = await fetch(`/participants`, {
@@ -28,7 +29,7 @@ export default function LoginForm({onLogin, buttonLabel}) {
 
          <label>Zaloguj się loginem i hasłem</label>
          <input type="text" value={login} onChange={(e) => setLogin(e.target.value)} />
-         <input type="text" />
-         <button type="button" onClick={() => onLogin(login)}>{buttonLabel || 'Zarejestruj'}</button>
+         <input type="text" value={password} onChange={(e) => setPassword(e.target.value)}/>
+         <button type="button" onClick={() => onRegister(login,password)}>{buttonLabel || 'Zarejestruj'}</button>
     </div>;
 }
